@@ -46,6 +46,39 @@ const NEUTRAL_GRAY = '#64748B';
 
 // --- Components ---
 
+const AdBanner = () => {
+  const adRef = React.useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (adRef.current && !adRef.current.querySelector('script')) {
+      const atOptionsScript = document.createElement('script');
+      atOptionsScript.type = 'text/javascript';
+      atOptionsScript.innerHTML = `
+        atOptions = {
+          'key' : '6b6777c4248ba9b31f1a7f8087ca4b49',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      `;
+      
+      const invokeScript = document.createElement('script');
+      invokeScript.type = 'text/javascript';
+      invokeScript.src = 'https://www.highperformanceformat.com/6b6777c4248ba9b31f1a7f8087ca4b49/invoke.js';
+      
+      adRef.current.appendChild(atOptionsScript);
+      adRef.current.appendChild(invokeScript);
+    }
+  }, []);
+
+  return (
+    <div className="flex justify-center items-center py-6 bg-slate-50 border-y border-slate-100 overflow-x-auto min-h-[140px]">
+      <div ref={adRef} className="mx-auto" />
+    </div>
+  );
+};
+
 const InputField = ({ label, icon: Icon, value, onChange, type = "number", suffix = "", prefix = "", tooltip = "" }: any) => (
   <div className="space-y-1.5">
     <div className="flex items-center gap-1.5">
@@ -189,6 +222,9 @@ export default function App() {
           </div>
         </div>
       </nav>
+
+      {/* --- Header Ad --- */}
+      <AdBanner />
 
       {/* --- Hero Section --- */}
       <header className="relative overflow-hidden pt-16 pb-24 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-50 via-white to-white">
@@ -696,6 +732,11 @@ export default function App() {
       {/* --- Footer --- */}
       <footer className="bg-slate-900 text-slate-400 py-20 px-4">
         <div className="max-w-7xl mx-auto">
+          {/* --- Footer Ad --- */}
+          <div className="mb-16 rounded-3xl overflow-hidden bg-slate-800/50">
+            <AdBanner />
+          </div>
+          
           <div className="grid md:grid-cols-4 gap-12 mb-16">
             <div className="col-span-2">
               <div className="flex items-center gap-2 mb-6">
