@@ -84,6 +84,29 @@ const AdBanner = ({ variant = 'light' }: { variant?: 'light' | 'dark' }) => {
   );
 };
 
+const CPMNetworkAd = () => {
+  const adRef = React.useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (adRef.current && !adRef.current.querySelector('script')) {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://pl29066198.profitablecpmratenetwork.com/f0/71/96/f07196f623babcc623ee6026e0254474.js';
+      script.async = true;
+      adRef.current.appendChild(script);
+    }
+  }, []);
+
+  return (
+    <div className="flex justify-center items-center py-4 bg-slate-900/50 rounded-xl mt-4">
+      <div ref={adRef} className="mx-auto min-h-[50px] flex items-center justify-center text-[10px] text-slate-600 uppercase tracking-widest">
+        {/* Ad will render here */}
+        Sponsored Content
+      </div>
+    </div>
+  );
+};
+
 const InputField = ({ label, icon: Icon, value, onChange, type = "number", suffix = "", prefix = "", tooltip = "" }: any) => (
   <div className="space-y-1.5">
     <div className="flex items-center gap-1.5">
@@ -745,6 +768,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
             <AdBanner variant="dark" />
+            <CPMNetworkAd />
           </div>
           
           <div className="grid md:grid-cols-4 gap-12 mb-16">
