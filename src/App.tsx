@@ -216,7 +216,10 @@ export default function App() {
             <a href="#calculator" className="hover:text-blue-600 transition-colors">Calculator</a>
             <a href="#how-it-works" className="hover:text-blue-600 transition-colors">How it Works</a>
             <a href="#faq" className="hover:text-blue-600 transition-colors">FAQs</a>
-            <button className="bg-slate-900 text-white px-5 py-2.5 rounded-full hover:bg-slate-800 transition-all font-semibold flex items-center gap-2">
+            <button 
+              aria-label="Start calculating"
+              className="bg-slate-900 text-white px-5 py-2.5 rounded-full hover:bg-slate-800 transition-all font-semibold flex items-center gap-2"
+            >
               Get Started <ArrowRight className="w-4 h-4" />
             </button>
           </div>

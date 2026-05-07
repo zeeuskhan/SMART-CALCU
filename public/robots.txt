@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /api/ # Assuming future API routes
 
 Sitemap: https://retirecalc.vercel.app/sitemap.xml
