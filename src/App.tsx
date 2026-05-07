@@ -46,15 +46,16 @@ const NEUTRAL_GRAY = '#64748B';
 
 // --- Components ---
 
-const AdBanner = () => {
+const AdBanner = ({ variant = 'light' }: { variant?: 'light' | 'dark' }) => {
   const adRef = React.useRef<HTMLDivElement>(null);
+  const containerId = React.useId().replace(/:/g, '');
 
   useEffect(() => {
     if (adRef.current && !adRef.current.querySelector('script')) {
       const atOptionsScript = document.createElement('script');
       atOptionsScript.type = 'text/javascript';
       atOptionsScript.innerHTML = `
-        atOptions = {
+        window.atOptions = {
           'key' : '6b6777c4248ba9b31f1a7f8087ca4b49',
           'format' : 'iframe',
           'height' : 90,
@@ -73,8 +74,11 @@ const AdBanner = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center py-6 bg-slate-50 border-y border-slate-100 overflow-x-auto min-h-[140px]">
-      <div ref={adRef} className="mx-auto" />
+    <div className={cn(
+      "flex justify-center items-center py-8 px-4 overflow-x-auto min-h-[140px] transition-colors",
+      variant === 'light' ? "bg-slate-50 border-y border-slate-100" : "bg-slate-800/30 border-y border-slate-700/50"
+    )}>
+      <div id={`ad-container-${containerId}`} ref={adRef} className="mx-auto" />
     </div>
   );
 };
@@ -735,9 +739,8 @@ export default function App() {
       {/* --- Footer --- */}
       <footer className="bg-slate-900 text-slate-400 py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          {/* --- Footer Ad --- */}
-          <div className="mb-16 rounded-3xl overflow-hidden bg-slate-800/50">
-            <AdBanner />
+          <div className="mb-16 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
+            <AdBanner variant="dark" />
           </div>
           
           <div className="grid md:grid-cols-4 gap-12 mb-16">
