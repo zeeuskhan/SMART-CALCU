@@ -1,54 +1,1352 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-AU">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="ItLByOSQAwzJ0a_YDS2lb1-6swGae5hQRnJUr4TuShg" />
     <link rel="canonical" href="https://retirecalc.vercel.app/" />
-    <title>Superannuation Calculator | Retirement & Pension Planner (2026)</title>
-    <meta name="description" content="Free professional Superannuation Calculator. Plan your retirement with inflation-adjusted projections for Australia Super, India NPS, and Global 401k/Pension funds. Accurate year-by-year growth analysis." />
-    
+    <link rel="alternate" href="https://retirecalc.vercel.app/" hreflang="en-AU" />
+    <link rel="alternate" href="https://retirecalc.vercel.app/" hreflang="x-default" />
+    <title>Superannuation Calculator 2026 | Free Australia Super Planner</title>
+    <meta name="description" content="Free superannuation calculator for Australians. Calculate your retirement super balance with inflation, fees, employer contributions & investment returns." />
+    <meta name="keywords" content="superannuation calculator, superannuation calculator australia, super calculator retirement, how much super will I have, superannuation date calculator, retirement calculator" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://retirecalc.vercel.app/" />
-    <meta property="og:title" content="Superannuation Calculator | Retirement & Pension Planner" />
+    <meta property="og:title" content="Superannuation Calculator 2026 | Free Australia Super Planner" />
     <meta property="og:description" content="Calculate your retirement corpus with inflation-adjusted precision. Supports Australia, India, UK, USA, and more." />
     <meta property="og:image" content="https://retirecalc.vercel.app/og-image.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://retirecalc.vercel.app/" />
-    <meta property="twitter:title" content="Superannuation Calculator | Retirement & Pension Planner" />
+    <meta property="twitter:title" content="Superannuation Calculator 2026 | Free Australia Super Planner" />
     <meta property="twitter:description" content="Calculate your retirement corpus with inflation-adjusted precision. Supports Australia, India, UK, USA, and more." />
     <meta property="twitter:image" content="https://retirecalc.vercel.app/og-image.png" />
 
+    <!-- JSON-LD Structured Data (WebApplication & FAQPage Combined) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Superannuation Calculator - RetireSmart",
-      "operatingSystem": "All",
-      "applicationCategory": "FinanceApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "1250"
-      }
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://retirecalc.vercel.app/#webapp",
+          "url": "https://retirecalc.vercel.app/",
+          "name": "Superannuation Calculator",
+          "operatingSystem": "All",
+          "applicationCategory": "FinanceApplication",
+          "browserRequirements": "Requires JavaScript.",
+          "genre": "Finance",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "AUD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://retirecalc.vercel.app/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a superannuation calculator?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A superannuation calculator is an online tool that helps Australians estimate their final retirement super balance at their chosen preservation or retirement age. By entering details such as current age, salary, existing super balance, employer SG contribution rates (12% as of 2025/2026), expected investment returns, fees, and voluntary contributions, the tool projects your long-term retirement savings with inflation-adjusted figures."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How accurate is this superannuation calculator?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This superannuation calculator uses industry-standard financial formulas for compound interest or growth, applying tax rules and inflation adjustments. However, it provides estimates, not guaranteed outcomes. Actual results vary based on fluctuations in investment returns, wage increases, legislative changes, and the specific daily calculations used by individual super funds."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the current SG (Superannuation Guarantee) rate in Australia?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Superannuation Guarantee (SG) rate in Australia is legislated to rise to 12.0% starting 1 July 2025/2026. This means employers are legally required to contribute 12% of an eligible employee's ordinary time earnings into their designated superannuation fund."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use this calculator if I'm self-employed?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. While self-employed individuals are not legally required to make SG contributions to themselves, it is highly recommended to build a retirement corpus. You can input your intended annual earnings and make manual/voluntary contributions under the 'Voluntary Contributions' setting in this calculator to see how your balance grows over time."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens to my super if I change jobs?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "When you change jobs, your super fund remains yours. Under the 'stapled super' laws in Australia, your new employer will automatically pay contributions to your existing ('stapled') super fund unless you explicitly choose a different fund. This prevents the creation of multiple super accounts and duplicate fees."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do super fund fees affect my retirement balance?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Even seemingly small annual fees can compound into significant amounts over a working lifetime. For example, reducing your annual fee from 1.0% to 0.5% could preserve tens of thousands of dollars in your final super balance by retirement, as less of your compound growth is eaten away by administrative and investment costs."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between before-tax and after-tax super contributions?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Before-tax (concessional) contributions are made from your pre-tax income, such as employer SG contributions or salary sacrifice, and are generally taxed at a concessional rate of 15% within the fund. After-tax (non-concessional) contributions are made from money you have already paid income tax on, allowing you to invest extra cash within the tax-sheltered super environment up to annual limits."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the preservation age for superannuation in Australia?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Your preservation age is the minimum age you must reach before you can access your superannuation savings. For anyone born on or after 1 July 1964, the preservation age is 60. Note this is separate from the eligibility age for the government Age Pension, which is currently set at 67."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
-    <meta name="keywords" content="retirement calculator date, retirement calculator by age, retirement calculator india, superannuation date calculator, retirement calculator online, retirement calculator india with inflation, retirement calculator investment, retirement calculator year by year, bankrate, retirement calculator excel, superannuation calculator retirement, nps calculator, 401k calculator, super calculator australia" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CPM Networks & High-Performance Format Ad Scripts -->
+    <script src="https://pl29066198.profitablecpmratenetwork.com/f0/71/96/f07196f623babcc623ee6026e0254474.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <style>
+      :root {
+        --primary: #0052cc;
+        --primary-hover: #0747a6;
+        --success: #00875a;
+        --success-hover: #006644;
+        --text-slate: #1e293b;
+        --text-muted: #64748b;
+        --bg-main: #f4f5f7;
+        --card-bg: #ffffff;
+        --border-color: #cbd5e1;
+        --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: var(--font-stack);
+        background-color: var(--bg-main);
+        color: var(--text-slate);
+        line-height: 1.6;
+        padding-bottom: 40px;
+      }
+
+      header {
+        background-color: #0f172a;
+        color: white;
+        padding: 60px 20px;
+        text-align: center;
+        border-bottom: 4px solid var(--primary);
+      }
+
+      .header-content {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .intro-p {
+        font-size: 1.1rem;
+        color: #94a3b8;
+        max-width: 750px;
+        margin: 0 auto 20px auto;
+        line-height: 1.7;
+      }
+
+      .container {
+        max-width: 950px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Ad Banners styling */
+      .ad-banner {
+        background: #e2e8f0;
+        border: 1px dashed var(--border-color);
+        padding: 15px;
+        text-align: center;
+        margin: 20px 0;
+        border-radius: 12px;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .grid-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 20px;
+      }
+
+      @media (min-width: 768px) {
+        .grid-layout {
+          grid-template-columns: 1.1fr 0.9fr;
+        }
+      }
+
+      .card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        padding: 30px;
+        border: 1px solid #e2e8f0;
+      }
+
+      .card h2, .card h3 {
+        margin-bottom: 20px;
+        color: var(--text-slate);
+        font-weight: 700;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: 600;
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+        color: var(--text-slate);
+      }
+
+      .form-group label span {
+        font-weight: 400;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+
+      .input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .input-prefix {
+        position: absolute;
+        left: 14px;
+        color: var(--text-muted);
+        font-weight: 600;
+      }
+
+      .input-suffix {
+        position: absolute;
+        right: 14px;
+        color: var(--text-muted);
+        font-weight: 500;
+        font-size: 0.85rem;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 14px 16px;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+        font-size: 1rem;
+        font-family: var(--font-stack);
+        color: var(--text-slate);
+        transition: border-color 0.2s;
+        outline: none;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+      }
+
+      .form-control.has-prefix {
+        padding-left: 32px;
+      }
+
+      .form-control.has-suffix {
+        padding-right: 48px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background-color: var(--primary);
+        color: white;
+        font-weight: 700;
+        padding: 15px 24px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: background-color 0.2s, transform 0.1s;
+      }
+
+      .btn:hover {
+        background-color: var(--primary-hover);
+      }
+
+      .btn:active {
+        transform: scale(0.98);
+      }
+
+      .btn-success {
+        background-color: var(--success);
+        margin-top: 15px;
+      }
+
+      .btn-success:hover {
+        background-color: var(--success-hover);
+      }
+
+      /* Results styling */
+      .results-summary {
+        text-align: center;
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        border-bottom: 1px dashed #cbd5e1;
+      }
+
+      .result-val {
+        font-size: 2.8rem;
+        font-weight: 800;
+        color: var(--success);
+        line-height: 1.1;
+        margin: 10px 0;
+      }
+
+      .result-today-val {
+        font-size: 1.2rem;
+        color: var(--text-slate);
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .results-info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+
+      .results-box {
+        background-color: #f8fafc;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #e2e8f0;
+        text-align: center;
+      }
+
+      .results-box-title {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 6px;
+      }
+
+      .results-box-val {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-slate);
+      }
+
+      /* CSS Bar Chart styling */
+      .chart-header {
+        margin-top: 30px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--text-slate);
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .chart-container {
+        display: flex;
+        flex-direction: column;
+        height: 220px;
+        background-color: #f8fafc;
+        border-radius: 12px;
+        padding: 15px;
+        border: 1px solid #e2e8f0;
+        position: relative;
+        justify-content: flex-end;
+      }
+
+      .chart-bars-wrapper {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+        padding-top: 15px;
+      }
+
+      .chart-bar {
+        flex: 1;
+        background: linear-gradient(180deg, #60a5fa 0%, #0052cc 100%);
+        margin: 0 4px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        min-height: 4px;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .chart-bar:hover {
+        background: linear-gradient(180deg, #34d399 0%, #00875a 100%);
+        transform: translateY(-2px);
+      }
+
+      .chart-bar .tooltip {
+        visibility: hidden;
+        position: absolute;
+        bottom: 110%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1e293b;
+        color: #ffffff;
+        padding: 6px 10px;
+        font-size: 11px;
+        border-radius: 6px;
+        white-space: nowrap;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        margin-bottom: 6px;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      .chart-bar:hover .tooltip {
+        visibility: visible;
+      }
+
+      .chart-bar-label {
+        position: absolute;
+        bottom: -22px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 9px;
+        font-weight: 600;
+        color: var(--text-muted);
+      }
+
+      /* Collapsible Table block */
+      .collapsible-container {
+        margin-top: 30px;
+      }
+
+      .collapsible-header {
+        background: #e2e8f0;
+        padding: 15px 20px;
+        border-radius: 8px;
+        font-weight: 700;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .collapsible-header::after {
+        content: "▼";
+        font-size: 0.8rem;
+        color: var(--text-slate);
+        transition: transform 0.2s;
+      }
+
+      .collapsible-container.open .collapsible-header::after {
+        transform: rotate(180deg);
+      }
+
+      .collapsible-content {
+        display: none;
+        padding-top: 15px;
+        overflow-x: auto;
+      }
+
+      .collapsible-container.open .collapsible-content {
+        display: block;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        font-size: 0.9rem;
+      }
+
+      th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      th {
+        background-color: #f1f5f9;
+        font-weight: 700;
+        color: var(--text-slate);
+      }
+
+      tr:hover {
+        background-color: #f8fafc;
+      }
+
+      /* SEO Content Styling */
+      .seo-content {
+        margin-top: 50px;
+        background: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        padding: 40px;
+        border: 1px solid #e2e8f0;
+      }
+
+      .seo-content h2 {
+        font-size: 1.8rem;
+        color: var(--text-slate);
+        margin-top: 40px;
+        margin-bottom: 15px;
+        border-left: 5px solid var(--primary);
+        padding-left: 15px;
+      }
+
+      .seo-content h2:first-of-type {
+        margin-top: 0;
+      }
+
+      .seo-content p {
+        margin-bottom: 20px;
+        color: #475569;
+        line-height: 1.8;
+      }
+
+      ul.styled-list, ol.styled-list {
+        margin-bottom: 25px;
+        padding-left: 20px;
+      }
+
+      ul.styled-list li, ol.styled-list li {
+        margin-bottom: 12px;
+        color: #475569;
+        line-height: 1.7;
+      }
+
+      ul.styled-list li strong, ol.styled-list li strong {
+        color: var(--text-slate);
+      }
+
+      .benchmark-table {
+        margin: 25px 0;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+      }
+
+      .benchmark-table th {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      /* FAQs Accordion styling */
+      .faq-section {
+        margin-top: 50px;
+      }
+
+      .faq-item {
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        background: #ffffff;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .faq-item[open] {
+        border-color: var(--primary);
+        box-shadow: 0 4px 12px rgba(0, 82, 204, 0.05);
+      }
+
+      .faq-question {
+        padding: 18px 24px;
+        font-weight: 700;
+        color: var(--text-slate);
+        cursor: pointer;
+        list-style: none; /* Hide default arrow */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.05rem;
+      }
+
+      .faq-question::-webkit-details-marker {
+        display: none; /* Hide Safari arrow */
+      }
+
+      .faq-question::after {
+        content: '+';
+        font-size: 1.5rem;
+        color: var(--primary);
+        font-weight: 500;
+        transition: transform 0.3s ease;
+      }
+
+      .faq-item[open] .faq-question::after {
+        content: '−';
+        transform: rotate(180deg);
+      }
+
+      .faq-answer {
+        padding: 0 24px 24px;
+        color: #475569;
+        line-height: 1.7;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background-color: #0f172a;
+        color: #94a3b8;
+        padding: 40px 20px;
+        text-align: center;
+        margin-top: 60px;
+        font-size: 0.9rem;
+        border-top: 5px solid #1e293b;
+      }
+
+      footer p {
+        margin-bottom: 15px;
+      }
+
+      footer .links {
+        margin-bottom: 15px;
+      }
+
+      footer .links a {
+        color: #cbd5e1;
+        text-decoration: none;
+        margin: 0 10px;
+        transition: color 0.2s;
+      }
+
+      footer .links a:hover {
+        color: white;
+      }
+
+      footer .disclaimer {
+        font-size: 0.8rem;
+        max-width: 800px;
+        margin: 20px auto 0 auto;
+        color: #64748b;
+        line-height: 1.6;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+
+    <header>
+      <div class="header-content">
+        <h1>Free Superannuation Calculator — Estimate Your Retirement Balance</h1>
+        <p class="intro-p">
+          Planning your financial future in Australia starts with securing a comfortable retirement. Superannuation is one of your most valuable assets, using compound growth to expand. 
+          Our professional online superannuation calculator helps you estimate your final retirement super balance at preservation age 60 to 67. 
+          By taking employer contributions (supporting the legislated 12% SG rate effective from 1 July 2025/2026), your salary sacrifice options, investment fees, and average returns into account, 
+          this engine projects your future pool and indexes everything for inflation so you plan with today's purchasing power. Keep on track with your retirement goals.
+        </p>
+      </div>
+    </header>
+
+    <div class="container">
+      
+      <!-- Top Ad Banner Placements / Dynamic Ads -->
+      <div class="ad-banner" id="top-ad-placement">
+        <!-- Banner Ad Widget 728x90 -->
+        <script>
+          window.atOptions = {
+            'key' : '6b6777c4248ba9b31f1a7f8087ca4b49',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highperformanceformat.com/6b6777c4248ba9b31f1a7f8087ca4b49/invoke.js" async></script>
+      </div>
+
+      <div class="grid-layout">
+        
+        <!-- Calculator Input Card -->
+        <div class="card">
+          <h2>Retirement Super Details</h2>
+          
+          <div class="form-group">
+            <label for="currentAge">Current Age <span>(years)</span></label>
+            <input type="number" id="currentAge" class="form-control" min="18" max="64" value="30" />
+          </div>
+
+          <div class="form-group">
+            <label for="retirementAge">Planned Retirement Age <span>(years)</span></label>
+            <input type="number" id="retirementAge" class="form-control" min="60" max="75" value="67" />
+          </div>
+
+          <div class="form-group">
+            <label for="currentBalance">Current Super Balance <span>(AUD)</span></label>
+            <div class="input-wrapper">
+              <span class="input-prefix">$</span>
+              <input type="number" id="currentBalance" class="form-control has-prefix" min="0" value="45000" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="annualSalary">Annual Salary <span>(Gross before tax, AUD)</span></label>
+            <div class="input-wrapper">
+              <span class="input-prefix">$</span>
+              <input type="number" id="annualSalary" class="form-control has-prefix" min="0" value="85000" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="employerRate">Employer Contribution Rate <span>(SG rate)</span></label>
+            <div class="input-wrapper">
+              <input type="number" id="employerRate" class="form-control has-suffix" min="0" max="30" step="0.5" value="12" />
+              <span class="input-suffix">%</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="voluntaryContributions">Salary Sacrifice / Voluntary Contributions <span>(monthly)</span></label>
+            <div class="input-wrapper">
+              <span class="input-prefix">$</span>
+              <input type="number" id="voluntaryContributions" class="form-control has-prefix" min="0" value="200" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="expectedReturn">Expected Investment Returns <span>(annual rate)</span></label>
+            <div class="input-wrapper">
+              <input type="number" id="expectedReturn" class="form-control has-suffix" min="-5" max="25" step="0.1" value="7.5" />
+              <span class="input-suffix">%</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="fees">Annual Super Fund Fees</label>
+            <div class="input-wrapper">
+              <input type="number" id="fees" class="form-control has-suffix" min="0" max="10" step="0.05" value="0.5" />
+              <span class="input-suffix">%</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inflationRate">Long-Term Annual Inflation Rate</label>
+            <div class="input-wrapper">
+              <input type="number" id="inflationRate" class="form-control has-suffix" min="0" max="15" step="0.1" value="2.5" />
+              <span class="input-suffix">%</span>
+            </div>
+          </div>
+
+          <button type="button" class="btn" onclick="runCalculation()">Recalculate Projections</button>
+        </div>
+
+        <!-- Calculator Result Card -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: flex-start;">
+          <h2>Estimated Results</h2>
+          
+          <div class="results-summary">
+            <p style="font-size: 0.95rem; font-weight: 500; color: var(--text-muted);">PROJECTED BALANCE AT RETIREMENT</p>
+            <div class="result-val" id="res-future-val">$0</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;">Future Face Value</p>
+            <div class="result-today-val">In Today's Purchasing Power: <span id="res-today-val" style="color: var(--primary);">$0</span></div>
+          </div>
+
+          <div class="results-info-grid">
+            <div class="results-box">
+              <div class="results-box-title">Total Contributions</div>
+              <div class="results-box-val" id="res-total-cont">$0</div>
+            </div>
+            <div class="results-box">
+              <div class="results-box-title">Earned Interest</div>
+              <div class="results-box-val" id="res-total-growth">$0</div>
+            </div>
+          </div>
+
+          <div class="results-info-grid" style="grid-template-columns: 1fr;">
+            <div class="results-box">
+              <div class="results-box-title">Years of Accumulation</div>
+              <div class="results-box-val" id="res-years">0 years</div>
+            </div>
+          </div>
+
+          <!-- Dynamic pure CSS chart visualization header -->
+          <div class="chart-header" id="chart-heading">Super Growth Timeline (Balance by Age)</div>
+          
+          <div class="chart-container">
+            <div class="chart-bars-wrapper" id="chart-bars">
+              <!-- Instantiated dynamically -->
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-success" onclick="downloadPDFReport()">Download PDF Report</button>
+        </div>
+
+      </div>
+
+      <!-- Collapsible Detailed Table -->
+      <div class="collapsible-container card" id="table-collapsible" style="margin-top: 40px; padding: 20px;">
+        <div class="collapsible-header" onclick="toggleTable()">
+          Year-by-Year Growth Projections Table
+        </div>
+        <div class="collapsible-content">
+          <table id="yearly-results-table">
+            <thead>
+              <tr>
+                <th>Age</th>
+                <th>Cumulative Contributions</th>
+                <th>Cumulative Growth</th>
+                <th>End Balance (Future)</th>
+                <th>Today's Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Injected by calculate script -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SEO Static Educational Content Section (Uncompromised crawlability) -->
+      <article class="seo-content">
+        <h2>How Does the Superannuation Calculator Work?</h2>
+        <p>
+          Our Superannuation Calculator models your long-term retirement fund growth using standard compound interest mathematics combined with legislative tax laws and inflation indexing. 
+          Each month, the engine computes employer Superannuation Guarantee (SG) payments based on your gross salary and voluntary pre-tax salary sacrifice amounts. 
+          Concessional contributions into Australian superannuation funds are taxed at a reduced rate of 15% rather than your marginal income tax scale. This tax is automatically deducted inside the calculator logic before funds begin compounding.
+        </p>
+        <p>
+          Next, the system computes monthly investment growth using your specified annual return profile, less the annual fee parameters. 
+          The formula is compounded iteratively over your active employment horizon (the years between your current age and final retirement age). 
+          To ensure you realize what this money represents in reality, the calculator divides the future face value by the cumulative impact of inflation, converting the final corpus into today's purchasing power. This shows exactly how much you can buy and if your retirement style is secure.
+        </p>
+
+        <h2>What Is the Superannuation Guarantee (SG) Rate in 2025/2026?</h2>
+        <p>
+          In Australia, the Superannuation Guarantee (SG) is the percentage of your ordinary time earnings that employers must contribute to your super fund. 
+          The Australian Government has legislated a progressive pathway to secure retirement balances. 
+          The SG rate reached 11.5% from 1 July 2024, and is legally scheduled to rise to <strong>12.0% on 1 July 2025/2026</strong>. 
+          This rate applies to full-time, part-time, and casual employees who are eligible for super. 
+          This structural increase ensures that workers capture a larger share of retirement growth.
+        </p>
+
+        <h2>How Much Super Should I Have at My Age?</h2>
+        <p>
+          Comparing your current balance against national benchmarks is a useful exercise to secure your trajectory. 
+          Below is a standard benchmark reference chart indicating median super balances for Australians across different age demographics. 
+          These reference values are compiled from industry averages published by APRA (Australian Prudential Regulation Authority) and the ASFA (Association of Superannuation Funds of Australia) retirement standard reports.
+        </p>
+
+        <div class="benchmark-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Age Cohort</th>
+                <th>Median Super Balance (approximate AUD)</th>
+                <th>Recommended Balance for "Comfortable" Life</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Age 25</strong></td>
+                <td>$15,000</td>
+                <td>$21,000</td>
+              </tr>
+              <tr>
+                <td><strong>Age 30</strong></td>
+                <td>$35,000</td>
+                <td>$61,000</td>
+              </tr>
+              <tr>
+                <td><strong>Age 35</strong></td>
+                <td>$65,000</td>
+                <td>$112,000</td>
+              </tr>
+              <tr>
+                <td><strong>Age 40</strong></td>
+                <td>$105,000</td>
+                <td>$178,000</td>
+              </tr>
+              <tr>
+                <td><strong>Age 45</strong></td>
+                <td>$155,000</td>
+                <td>$254,000</td>
+              </tr>
+              <tr>
+                <td><strong>Age 50</strong></td>
+                <td>$210,005</td>
+                <td>$343,000</td>
+              </tr>
+              <tr>
+                <td><strong>Age 55</strong></td>
+                <td>$285,000</td>
+                <td>$441,000</td>
+              </tr>
+              <tr>
+                <td><strong>Age 60</strong></td>
+                <td>$360,000</td>
+                <td>$545,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Tips to Grow Your Superannuation Faster</h2>
+        <p>
+          If your current projection shows a shortfall, several proactive steps can help bridge the gap to a comfortable lifestyle:
+        </p>
+        <ol class="styled-list">
+          <li>
+            <strong>Implement Salary Sacrifice:</strong> You can arrange with your employer to pay a portion of your pre-tax income directly into your super. Under the concessional contribution cap (currently $30,000 per financial year), this salary is taxed at just 15% instead of your higher income tax rate, allowing you to invest more up front.
+          </li>
+          <li>
+            <strong>Consolidate Multiple Funds:</strong> If you have held multiple jobs, you might have legacy super accounts. Consolidating your super into a single fund prevents duplicate administration fees and premiums from eroding your growth. Use the ATO service via myGov to track down lost accounts.
+          </li>
+          <li>
+            <strong>Review and Adjust Your Investment Options:</strong> Standard super plans place you in a "Balanced" fund. If you are decades away from retirement, shifting to a "High Growth" option offers exposure to capital growth assets (like shares and property) which historical returns show perform better long-term.
+          </li>
+          <li>
+            <strong>Make Personal After-Tax Contributions:</strong> Making non-concessional contributions from your take-home pay is another powerful strategy. If you are on a lower income, you may even qualify for government co-contributions, where the government matches up to $500 of your payments.
+          </li>
+          <li>
+            <strong>Compare and Select Low-Fee Providers:</strong> High fees can consume a massive portion of your total investment earnings over 30 to 40 years. Transitioning to a high-performing Industry Super Fund with low percentage-based investment fees keeps more money working for your future.
+          </li>
+        </ol>
+
+        <h2>When Can I Access My Superannuation?</h2>
+        <p>
+          In Australia, accessing your superannuation requires reaching your designated <strong>preservation age</strong> and meeting a condition of release. 
+          For anyone born after 1 July 1964, your preservation age is exactly <strong>60 years</strong>. 
+          Once you reach age 60, you can transition to retirement or withdraw your super tax-free if retired. 
+          You get unrestricted, full access to your super balance automatically when you reach age 65, regardless of your work status. 
+          Note that the government Age Pension eligibility is separate, currently standing at age 67.
+        </p>
+      </article>
+
+      <!-- Dynamic Accordion FAQs (Matches Crawl-ready layout + Head JSON schema) -->
+      <section class="faq-section">
+        <h2 style="font-size: 1.8rem; margin-bottom: 25px; font-weight: 800; border-left: 5px solid var(--primary); padding-left: 15px;">Frequently Asked Questions</h2>
+        
+        <details class="faq-item" open>
+          <summary class="faq-question">What is a superannuation calculator?</summary>
+          <div class="faq-answer">
+            A superannuation calculator is an online tool designed to help Australians estimate their final retirement super balance. By specifying inputs such as current age, retirement age, salary, voluntary pre-tax contributions, expected investment returns, and annual fund fees, the calculator models compound growth over your working lifetime and displays the projected amount in future values and inflation-adjusted today's dollars.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">How accurate is this superannuation calculator?</summary>
+          <div class="faq-answer">
+            This superannuation calculator provides highly reliable mathematical projections based on the inputs you provide. It utilizes industry-standard compounding calculations and incorporates Australian concessional tax rules (15% contribution tax). However, actual retirement balances depend on variables that cannot be predicted with 100% certainty, including financial market fluctuations, employer adjustments, fees, and government tax legislation over time.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">What is the current SG (Superannuation Guarantee) rate in Australia?</summary>
+          <div class="faq-answer">
+            The legislated Superannuation Guarantee (SG) rate in Australia is scheduled to increase to 12.0% starting 1 July 2025/2026. This represents the mandatory minimum percentage of your ordinary earnings that employers must make as contributions into your chosen super fund on your behalf.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Can I use this calculator if I'm self-employed?</summary>
+          <div class="faq-answer">
+            Yes, self-employed individuals can use this tool to map out their retirement goals. Although you aren't forced to pay yourself the super guarantee, saving for retirement is crucial. You can set your income and input your voluntary monthly or annual contributions to see how early savings can grow through compound returns.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">What happens to my super if I change jobs?</summary>
+          <div class="faq-answer">
+            When you change jobs, your existing super fund continues to grow as your primary account. Under Australia's 'stapled super' laws, employers must check with the ATO to identify your stapled fund and default their SG payments to that account, unless you fill out a standard form to transfer your super to a new provider. This protects against paying administrative fees on multiple empty accounts.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">How do super fund fees affect my retirement balance?</summary>
+          <div class="faq-answer">
+            Super fund fees have a powerful impact on your final balance because they eat into your compounding growth pool year after year. Even a difference of 0.5% in annual administration and investment fee percentages can reduce your final retirement balance by tens of thousands of dollars over a 30 to 40-year window. Finding competitive providers with low fees is one of the easiest ways to optimize your retirement plans.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">What is the difference between before-tax and after-tax super contributions?</summary>
+          <div class="faq-answer">
+            Before-tax (concessional) contributions are made out of your pre-tax income. This includes the SG payments your employer makes and salary sacrifice agreements. These face a concession rate tax of 15% in the fund. After-tax (non-concessional) contributions are made from your standard net take-home salary, which already incurred income taxes, but let you place extra savings in a tax-sheltered super environment.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">What is the preservation age for superannuation in Australia?</summary>
+          <div class="faq-answer">
+            Your preservation age is the minimum age you must achieve before you can access your superannuation savings. For everyone born after 1 July 1964, the legal preservation age is 60. You can access your super tax-free if you reach age 60 and meet the retired condition of release. At age 65, you gain open, unrestricted accessibility, regardless of whether you are still working or not.
+          </div>
+        </details>
+      </section>
+
+      <!-- Bottom Ad Banner Placements / Dynamic Ads -->
+      <div class="ad-banner" id="bottom-ad-placement">
+        <!-- Banner Ad Widget 728x90 -->
+        <script>
+          window.atOptions = {
+            'key' : '6b6777c4248ba9b31f1a7f8087ca4b49',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highperformanceformat.com/6b6777c4248ba9b31f1a7f8087ca4b49/invoke.js" async></script>
+      </div>
+
+    </div>
+
+    <footer>
+      <div class="links">
+        <a href="#calculator">Calculator</a> | 
+        <a href="#faqs">FAQs</a> | 
+        <a href="#">Privacy Policy</a> | 
+        <a href="#">Terms of Use</a> | 
+        <a href="#">About Us</a>
+      </div>
+      <p>&copy; 2026 RetireSmart Superannuation Calculator. All Rights Reserved.</p>
+      <div class="disclaimer">
+        Disclaimer: The calculations and results generated by this tool are for general illustrative and educational purposes only and do not constitute personal financial, tax, or investment advice. While standard formulas and tax rates are modeled, actual returns may fluctuate significantly over time. You should always consult with a licensed, professional financial planner or specialist accountant before making any decisions regarding your superannuation funds or retirment investments.
+      </div>
+    </footer>
+
+    <!-- Vanilla Javascript Logic Core -->
+    <script>
+      let currentResultData = null;
+
+      function runCalculation() {
+        const currentAge = parseInt(document.getElementById('currentAge').value) || 30;
+        const retirementAge = parseInt(document.getElementById('retirementAge').value) || 67;
+        const currentBalance = parseFloat(document.getElementById('currentBalance').value) || 0;
+        const annualSalary = parseFloat(document.getElementById('annualSalary').value) || 0;
+        const employerRate = parseFloat(document.getElementById('employerRate').value) || 12;
+        const voluntaryContributions = parseFloat(document.getElementById('voluntaryContributions').value) || 0;
+        const expectedReturn = parseFloat(document.getElementById('expectedReturn').value) || 7.5;
+        const fees = parseFloat(document.getElementById('fees').value) || 0.5;
+        const inflationRate = parseFloat(document.getElementById('inflationRate').value) || 2.5;
+
+        const yearsOfGrowth = retirementAge - currentAge;
+        
+        if (yearsOfGrowth <= 0) {
+          alert("Retirement age must be greater than current age.");
+          return;
+        }
+
+        // Calculation Math
+        let balance = currentBalance;
+        let cumulativeGrossContributions = 0;
+        let totalGrowth = 0;
+
+        const monthlyReturnRate = Math.pow(1 + (expectedReturn - fees) / 100, 1 / 12) - 1;
+        const monthlyEmployer = (annualSalary * (employerRate / 100)) / 12;
+        const monthlyVoluntary = voluntaryContributions;
+
+        // Concessional contributions tax rate of 15% in Australia
+        const concessionalTaxRate = 0.15;
+        const netMonthlyEmployer = monthlyEmployer * (1 - concessionalTaxRate);
+        const netMonthlyVoluntary = monthlyVoluntary * (1 - concessionalTaxRate);
+        const netMonthlyTotal = netMonthlyEmployer + netMonthlyVoluntary;
+
+        const yearlyBreakdown = [];
+
+        // Month by Month simulation
+        const totalMonths = yearsOfGrowth * 12;
+
+        for (let m = 1; m <= totalMonths; m++) {
+          // Beginning of Month contribution
+          balance += netMonthlyTotal;
+          cumulativeGrossContributions += (monthlyEmployer + monthlyVoluntary);
+
+          // Monthly compound earnings
+          const monthlyEarnings = balance * monthlyReturnRate;
+          balance += monthlyEarnings;
+          totalGrowth += monthlyEarnings;
+
+          // Push values once per year
+          if (m % 12 === 0) {
+            const tempAge = currentAge + (m / 12);
+            const rawTodayVal = balance / Math.pow(1 + inflationRate / 100, m / 12);
+            yearlyBreakdown.push({
+              age: tempAge,
+              balance: Math.round(balance),
+              todayValue: Math.round(rawTodayVal),
+              contributions: Math.round(cumulativeGrossContributions),
+              growth: Math.round(totalGrowth)
+            });
+          }
+        }
+
+        // Final results compilation
+        const finalBalanceFuture = Math.round(balance);
+        const inflationFactor = Math.pow(1 + inflationRate / 100, yearsOfGrowth);
+        const finalBalanceToday = Math.round(balance / inflationFactor);
+
+        // Store results globally to let PDF grab it
+        currentResultData = {
+          currentAge,
+          retirementAge,
+          currentBalance,
+          annualSalary,
+          employerRate,
+          voluntaryContributions,
+          expectedReturn,
+          fees,
+          inflationRate,
+          yearsOfGrowth,
+          finalBalanceFuture,
+          finalBalanceToday,
+          totalContributions: Math.round(cumulativeGrossContributions),
+          totalGrowth: Math.round(totalGrowth),
+          yearlyBreakdown
+        };
+
+        // Update presentation numbers
+        const formatter = new Intl.NumberFormat('en-AU', {
+          style: 'currency',
+          currency: 'AUD',
+          maximumFractionDigits: 0
+        });
+
+        document.getElementById('res-future-val').innerText = formatter.format(finalBalanceFuture);
+        document.getElementById('res-today-val').innerText = formatter.format(finalBalanceToday);
+        document.getElementById('res-total-cont').innerText = formatter.format(Math.round(cumulativeGrossContributions));
+        document.getElementById('res-total-growth').innerText = formatter.format(Math.round(totalGrowth));
+        document.getElementById('res-years').innerText = `${yearsOfGrowth} Years of Grow`;
+
+        // Update CSS Graphic Timeline
+        updateCSSChart(yearlyBreakdown);
+
+        // Populate Table Body
+        const tbody = document.querySelector('#yearly-results-table tbody');
+        tbody.innerHTML = '';
+        yearlyBreakdown.forEach(row => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><strong>Age ${row.age}</strong></td>
+            <td>${formatter.format(row.contributions)}</td>
+            <td>${formatter.format(row.growth)}</td>
+            <td><strong>${formatter.format(row.balance)}</strong></td>
+            <td><span style="color: var(--primary); font-weight: 600;">${formatter.format(row.todayValue)}</span></td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      function updateCSSChart(data) {
+        const container = document.getElementById('chart-bars');
+        container.innerHTML = '';
+
+        // Select a sample representation (max 10 bars to not clutter UI)
+        const totalRows = data.length;
+        const step = Math.ceil(totalRows / 10);
+        const samplings = [];
+
+        for (let i = step - 1; i < totalRows; i += step) {
+          samplings.push(data[i]);
+        }
+        // Ensure last item is always represented
+        if (data[totalRows - 1] && !samplings.includes(data[totalRows - 1])) {
+          samplings.push(data[totalRows - 1]);
+        }
+
+        const maxVal = Math.max(...samplings.map(s => s.balance), 1);
+        const formatter = new Intl.NumberFormat('en-AU', {
+          style: 'currency',
+          currency: 'AUD',
+          maximumFractionDigits: 0
+        });
+
+        samplings.forEach(item => {
+          const pct = Math.max((item.balance / maxVal) * 100, 5); // 5% minimum height visibility
+          const bar = document.createElement('div');
+          bar.className = 'chart-bar';
+          bar.style.height = `${pct}%`;
+          bar.innerHTML = `
+            <div class="tooltip">Age ${item.age}: ${formatter.format(item.balance)}</div>
+            <div class="chart-bar-label">Age ${item.age}</div>
+          `;
+          container.appendChild(bar);
+        });
+      }
+
+      function toggleTable() {
+        const wrapper = document.getElementById('table-collapsible');
+        wrapper.classList.toggle('open');
+      }
+
+      function downloadPDFReport() {
+        if (!currentResultData) {
+          alert("Please calculate projections first.");
+          return;
+        }
+
+        if (typeof window.jspdf === 'undefined') {
+          alert("PDF generator library is loading. Please try again in single minute.");
+          return;
+        }
+
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        const formatter = new Intl.NumberFormat('en-AU', {
+          style: 'currency',
+          currency: 'AUD',
+          maximumFractionDigits: 0
+        });
+
+        // Add visual content to PDF
+        doc.setFillColor(15, 23, 42); // slate dark background
+        doc.rect(0, 0, 210, 40, 'F');
+
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(20);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Superannuation Projections Report', 15, 25);
+        
+        doc.setFontSize(9);
+        doc.setFont('helvetica', 'normal');
+        doc.text(`RetireSmart Secure Planner • Generated: ${new Date().toLocaleDateString()}`, 15, 33);
+
+        // Section: Summary Info
+        doc.setTextColor(15, 23, 42);
+        doc.setFontSize(14);
+        doc.setFont('helvetica', 'bold');
+        doc.text('1. Estimated Balances at Age ' + currentResultData.retirementAge, 15, 55);
+
+        doc.setFontSize(11);
+        doc.setFont('helvetica', 'normal');
+        doc.text('Projected Face Value Balance:', 15, 65);
+        doc.setFont('helvetica', 'bold');
+        doc.text(formatter.format(currentResultData.finalBalanceFuture), 90, 65);
+
+        doc.setFont('helvetica', 'normal');
+        doc.text("In Today's Purchasing Power Values:", 15, 73);
+        doc.setFont('helvetica', 'bold');
+        doc.setTextColor(0, 135, 90); // green
+        doc.text(formatter.format(currentResultData.finalBalanceToday), 90, 73);
+
+        doc.setTextColor(15, 23, 42);
+        doc.setFont('helvetica', 'normal');
+        doc.text('Cumulative Gross Contributions Specified:', 15, 81);
+        doc.setFont('helvetica', 'bold');
+        doc.text(formatter.format(currentResultData.totalContributions), 90, 81);
+
+        doc.setFont('helvetica', 'normal');
+        doc.text('Total Compound Investment Capital Growth:', 15, 89);
+        doc.setFont('helvetica', 'bold');
+        doc.text(formatter.format(currentResultData.totalGrowth), 90, 89);
+
+        // Section: Settings Input parameters
+        doc.setTextColor(15, 23, 42);
+        doc.setFontSize(14);
+        doc.text('2. Applied Scenario Assumptions', 15, 105);
+
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'normal');
+        
+        const paramsLeft = [
+          `Current Age: ${currentResultData.currentAge} years old`,
+          `Retirement Age: ${currentResultData.retirementAge} years old`,
+          `Starting Super Balance: ${formatter.format(currentResultData.currentBalance)}`,
+          `Annual Gross Salary: ${formatter.format(currentResultData.annualSalary)}`
+        ];
+
+        const paramsRight = [
+          `Employer Contribution Rate: ${currentResultData.employerRate}%`,
+          `Voluntary Contributions: ${formatter.format(currentResultData.voluntaryContributions)}/month`,
+          `Expected Market Growth Return: ${currentResultData.expectedReturn}%`,
+          `Fund Admin Fees: ${currentResultData.fees}% | Inflation Indexed: ${currentResultData.inflationRate}%`
+        ];
+
+        let startY = 115;
+        for (let i = 0; i < 4; i++) {
+          doc.text(paramsLeft[i], 15, startY);
+          doc.text(paramsRight[i], 110, startY);
+          startY += 8;
+        }
+
+        // Section: Simplified Projections Table
+        doc.setFontSize(14);
+        doc.setFont('helvetica', 'bold');
+        doc.text('3. Simplified Progress Milestones', 15, 155);
+
+        doc.setFontSize(10);
+        doc.setFillColor(241, 245, 249);
+        doc.rect(15, 162, 180, 8, 'F');
+        doc.setTextColor(15, 23, 42);
+        doc.text('Target Age', 18, 168);
+        doc.text('Total Contributions', 55, 168);
+        doc.text('Future End Balance', 105, 168);
+        doc.text('Today\'s Value Basis', 150, 168);
+
+        let tableY = 177;
+        // Output up to 10 spaced milestones to fit nicely on page 1
+        const cleanSteps = currentResultData.yearlyBreakdown;
+        const totalItems = cleanSteps.length;
+        const reportStep = Math.max(Math.ceil(totalItems / 8), 1);
+
+        for (let i = reportStep - 1; i < totalItems; i += reportStep) {
+          const row = cleanSteps[i];
+          doc.setFont('helvetica', 'normal');
+          doc.text(`Age ${row.age}`, 18, tableY);
+          doc.text(formatter.format(row.contributions), 55, tableY);
+          doc.text(formatter.format(row.balance), 105, tableY);
+          doc.setFont('helvetica', 'bold');
+          doc.text(formatter.format(row.todayValue), 150, tableY);
+          tableY += 8;
+        }
+
+        // Footer disclaimer
+        doc.setFont('helvetica', 'italic');
+        doc.setFontSize(8);
+        doc.setTextColor(100, 116, 139);
+        doc.text('Notice: Figures in this report are mathematically projected assessments, not static guarantees and do not constitute financial guidance.', 15, 275);
+
+        doc.save(`Superannuation_Calculator_Report_2026.pdf`);
+      }
+
+      // Automatically compute projections on page loading
+      window.onload = function() {
+        runCalculation();
+      }
+    </script>
   </body>
 </html>
-
